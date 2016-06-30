@@ -5,7 +5,7 @@ library(xlsx)
 
 shinyUI(fluidPage(
   
-  titlePanel("To-Fest"),
+  titlePanel("Dynamic Plotter"),
   sidebarLayout(
     sidebarPanel(
       fileInput('file1', 'Choose File', accept = ".xlsx"),
@@ -14,10 +14,12 @@ shinyUI(fluidPage(
       tags$hr(),
       checkboxInput('header', 'Header', TRUE),
       tags$hr(),
-      selectInput("select1", "Select X Variable", choices =c()),
+      selectInput("selectX", "Select X Variable", choices =c()),
       tags$hr(),
-      selectInput("select2", "Select Y Variable", choices =c()),
-      
+      selectInput("selectY", "Select Y Variable", choices =c()),
+      selectInput("selectPlot", "Select Plot Type", choices = c("Bar","Line","Points","Histogram","Boxplot")),
+      selectInput("selectColor", "Select Color", choices=c("gray","white","black","blue","darkblue", "skyblue", "red", "orange", "yellow", "green","purple","pink")),
+      textInput("selectTitle", "Plot Title"),
       uiOutput("choose_columns")
       
     ),
